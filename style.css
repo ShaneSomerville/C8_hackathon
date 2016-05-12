@@ -15,5 +15,12 @@ body {
     margin:0;
     border:1px solid blue;
     background-color:crimson;
-    display:inline-block;
+    float:left;
 }
+/*DIV 1 CSS*/
+.div1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/*END DIV 1 CSS*/
