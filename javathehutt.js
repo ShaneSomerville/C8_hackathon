@@ -1,21 +1,25 @@
 /**
  * Created by somer on 5/12/2016.
  */
+//GLOBAL VARIABLES
+var region;
+var firstName;
+var lastName;
+//END GLOBAL VARIABLES
+
 $(document).ready(function(){
     get_identity();
     $('.div6').click(function () {
         console.log("div6 clicked");
         getCarPhoto();
         getHomePhoto();
-    })
-    $(".section.div2").append(story);
+    });
+
     randomAgeGenerator();
     randomGenderGenerator();
-    randomOccupationGenerator();
+
 });
-//GLOBAL VARIABLES
-var region;
-//END GLOBAL VARIABLES
+
 
 //This function makes an ajax call to the uinames api and asks it for a randomly generated first/last name, gender, and region.
 // overlapping functionality on the gender with Micah's random gender generator, so removed gender from here to have more than 2 input options.
@@ -26,12 +30,13 @@ function get_identity(){
         datatype: 'json',
         url: 'http://uinames.com/api/',
         success: function(result){
-            var firstName=result.name;
-            var lastName=result.surname;
+            firstName=result.name;
+            lastName=result.surname;
             region=result.region;
-            var div_1_paragraph=$('<p>').html(firstName+ ' '+ lastName+ ', '+ region);
+            var div_1_paragraph=$('<p>').html(firstName+ ' '+ lastName+ ', '  + region);
             $('.div1').append(div_1_paragraph);
             initialize();
+            randomOccupationGenerator();
         },
         error: function(){
             console.log('call was unsuccessful')
@@ -112,40 +117,9 @@ function getHomePhoto() {
     })
 }
 
-//END POLOROID FUNCTION SECTION
+//END POLOROID FUNCTION
 
-//JVOX START
-// Arrays Holding Misc Info
-var occupations =['Trumpeter','Funeral Clown','Coffee Bitch','Piccoloist','Penetration Tester'];
-var hobbies = ['Wind Gazing','Polishing Poop','Toilet Paper Origami','Collecting In-Flight Sick Bags','Fingernail/Toenail Collection'];
-var crushIt = ['Crush it', 'Pwn It','Rek It'];
-var adjectives = ['moaning','shaggy','spicy','tricky','colossal','hissing'];
-var nouns = ['banana','Llamamoramma and the Splendiferous Cupcake Experience','captain fantastic ','sock gnomes ','mermaid eggs '];
-var conventions = ['Association of Lincoln Presenters','World Taxidermy & Fish Carving Championships','World Clown Association','Anthrocon','Merfest','BronyCon'];
-var locations = ['New York', 'england'];
-var names = ['betch','fack'];
-//Randomize Each Array (ROUGH VERSION, WILL CHANGE)
-var randomizeOccupations = occupations[Math.floor(Math.random()*occupations.length)];
-var randomizeCrushit = crushIt [Math.floor(Math.random()*crushIt .length)];
-var randomizeAdjectives = adjectives[Math.floor(Math.random()*adjectives.length)];
-var randomizeNouns = nouns[Math.floor(Math.random()*nouns.length)];
-var randomizeConventions = conventions[Math.floor(Math.random()*conventions.length)];
-var randomizeLocations = locations[Math.floor(Math.random()*locations.length)];
-var randomizeNames = names[Math.floor(Math.random()*names.length)];
-var randomizeHobbies = hobbies[Math.floor(Math.random()*hobbies.length)];
-var story = " You are" + " " + [randomizeNames ] + " " + " you have been a" + " " + [randomizeOccupations] + " " + " for 10 years"
-    + " " + " Your favorite pastime is" + " " + [randomizeHobbies] + " " + "As for how you ended up here,  " + " " + [randomizeLocations]
-    + " " + " In your past life you were a " + " " + [randomizeAdjectives] + " " + [randomizeOccupations] + " " + " and because of our inability " +
-    "to" + " " + [randomizeCrushit] + " " + "your company fired you. In search for something new you wound up in" + " " + [randomizeLocations]
-    + " " + " You take no enjoyment from" + " " + [randomizeOccupations] + " " + "but prefer to immerse yourself in" + " " + [randomizeAdjectives]
-    + " " + [randomizeNouns] + " " + " Everyone has a darkside...for your story to be believable we you have a crippling addiction to" + " " +
-    [randomizeNouns] + " " + " and LOVE to attend" + " " + [randomizeConventions];
-//JVOX END
 
-/**
- * Created by Qzxtzrtz on 5/12/2016.
- */
-//TODO Micah section
 // 3 functions: randomAgeGenerator , randomGenderGenerator, randomOccupationGenerator
 // outputs: new age, gender, occupation to div3.
 
@@ -185,6 +159,7 @@ function randomOccupationGenerator(){
     newOccupationDescription = newOccupationObj.description;
     console.log("newOccupationDescription = "+newOccupationDescription);
     displayDiv3();
+    background_generator();
 }//end randomOccupationGenerator
 
 /**div 3 display* appends random new Age, Gender and Occupation to DOM*/
@@ -269,3 +244,31 @@ var occupationArray = [
     { label: " Weed Farmer ",
         description: " Don't get too excited all you slackers, that's not what I'm talking about."}
 ];  //end newOccupationArray
+function background_generator(){
+    // Arrays Holding Misc Info
+    var occupations =['trumpeter','funeral clown','coffee bitch','piccoloist','penetration tester'];
+    var hobbies = ['wind gazing','polishing poop','toilet paper origami','collecting in-flight sick bags','fingernail/toenail collection'];
+    var crushIt = ['crush it', 'pwn It','rek It'];
+    var adjectives = ['moaning','shaggy','spicy','tricky','colossal','hissing'];
+    var nouns = ['banana','Llamamoramma and the Splendiferous Cupcake Experience','captain fantastic ','sock gnomes ','mermaid eggs '];
+    var conventions = ['Association of Lincoln Presenters','World Taxidermy & Fish Carving Championships','World Clown Association','Anthrocon','Merfest','BronyCon'];
+    var locations = ['New York', 'England'];
+    // var names = ['betch','fack'];
+//Randomize Each Array (ROUGH VERSION, WILL CHANGE)
+    var randomizeOccupations = occupations[Math.floor(Math.random()*occupations.length)];
+    var randomizeCrushit = crushIt [Math.floor(Math.random()*crushIt .length)];
+    var randomizeAdjectives = adjectives[Math.floor(Math.random()*adjectives.length)];
+    var randomizeNouns = nouns[Math.floor(Math.random()*nouns.length)];
+    var randomizeConventions = conventions[Math.floor(Math.random()*conventions.length)];
+    var randomizeLocations = locations[Math.floor(Math.random()*locations.length)];
+    // var randomizeNames = names[Math.floor(Math.random()*names.length)];
+    var randomizeHobbies = hobbies[Math.floor(Math.random()*hobbies.length)];
+    var story = " The old you is dead and gone, here's your new life. Your name is " + firstName + ' ' + lastName +  ". You have been a" + " " + newOccupation + " " + " for 10 years."
+        + newOccupationDescription + " " + " Your favorite pastime is" + " " + [randomizeHobbies] + ". " + "As for how you ended up here, when you were young your parents brought you here from  " + " " + [randomizeLocations]
+        + ". " + " In the past you were a " + " " + [randomizeAdjectives] + " " + [randomizeOccupations] + " " + " and because of your inability to" + " " + [randomizeCrushit] + " " + "your company fired you. In search of something new you wound up in" + " " + region
+        + ". " + " You take no enjoyment from" + " " + [randomizeOccupations] + " " + "but prefer to immerse yourself in" + " " + [randomizeAdjectives]
+        + " " + [randomizeNouns] + ". " + " Everyone has a darkside...for your story to be believable you now have a crippling addiction to" + " " +
+        [randomizeNouns] + " " + " and LOVE to attend" + " " + [randomizeConventions] + '.';
+    $(".section.div2").append(story);
+}
+//END BR GENERATOR
