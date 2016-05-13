@@ -1,4 +1,143 @@
 /**
+ * Created by somer on 5/12/2016.
+ */
+$(document).ready(function(){
+    get_identity();
+    $('.div6').click(function () {
+        console.log("div6 clicked");
+        getCarPhoto();
+        getHomePhoto();
+    })
+    $(".section.div2").append(story);
+    randomAgeGenerator();
+    randomGenderGenerator();
+    randomOccupationGenerator();
+});
+//This function makes an ajax call to the uinames api and asks it for a randomly generated first/last name, gender, and region.
+// overlapping functionality on the gender with Micah's random gender generator, so removed gender from here to have more than 2 input options.
+//info to be plugged into the passport image along with the age generator.
+function get_identity(){
+    $.ajax({
+        method: 'get',
+        datatype: 'json',
+        url: 'http://uinames.com/api/',
+        success: function(result){
+            var FirstName=result.name;
+            var LastName=result.surname;
+            var Region=result.region;
+            var div_1_paragraph=$('<p>').html(FirstName+ ' '+ LastName+ ', '+ Gender+ ', '+ Region);
+            $('.div1').append(div_1_paragraph);
+        },
+        error: function(){
+            console.log('call was unsuccessful')
+        }
+    })
+}
+//START FUNCTIONS FOR POLOROID PICTURES
+/**
+ * getCarPhotos - pulls car photos from flickr api
+ */
+function getCarPhoto() {
+    $.ajax({
+        url: 'https://api.flickr.com/services/rest',
+        method: 'get',
+        data: {
+            method: 'flickr.photos.search',
+            api_key: '3c46705eb50f63815c46f96aa8ce171d',
+            nojsoncallback: '1',
+            text: 'car',
+            format: 'json'
+        },
+        success: function (result) {
+            console.log(result);
+            console.log('car request has been made for ',  result.photos.photo[0].id);
+            var index = Math.floor((Math.random() * 25));
+            console.log("index " + index);
+
+            var all_photo = result.photos.photo;
+            var photo_id = all_photo[index].id;
+            var farm_id = all_photo[index].farm;
+            var secret_id = all_photo[index].secret;
+            var server_id = all_photo[index].server;
+
+            console.log(photo_id, farm_id, secret_id);
+            var image_src = 'https://farm' + farm_id +'.staticflickr.com/'
+                + server_id +'/'+ photo_id +'_'+ secret_id +'.jpg';
+            console.log(image_src);
+
+            var car_image = $('<img>').attr('src', image_src).addClass('car_img');
+
+            $('.div6').append(car_image);
+        }
+    })
+}
+
+function getHomePhoto() {
+    $.ajax({
+        url: 'https://api.flickr.com/services/rest',
+        method: 'get',
+        data: {
+            method: 'flickr.photos.search',
+            api_key: '3c46705eb50f63815c46f96aa8ce171d',
+            nojsoncallback: '1',
+            text: 'house -bird',
+            format: 'json'
+        },
+        success: function (result) {
+            console.log(result);
+            console.log('home request has been made for ',  result.photos.photo[0].id);
+            var index = Math.floor((Math.random() * 25));
+            console.log("index " + index);
+
+            var all_photo = result.photos.photo;
+            var photo_id = all_photo[index].id;
+            var farm_id = all_photo[index].farm;
+            var secret_id = all_photo[index].secret;
+            var server_id = all_photo[index].server;
+
+            console.log(photo_id, farm_id, secret_id);
+            var image_src = 'https://farm' + farm_id +'.staticflickr.com/'
+                + server_id +'/'+ photo_id +'_'+ secret_id +'.jpg';
+            console.log(image_src);
+
+            var house_image = $('<img>').attr('src', image_src).addClass('house_img');
+
+            $('.div6').append(house_image);
+        }
+    })
+}
+
+//END POLOROID FUNCTION SECTION
+
+//JVOX START
+// Arrays Holding Misc Info
+var occupations =['Trumpeter','Funeral Clown','Coffee Bitch','Piccoloist','Penetration Tester'];
+var hobbies = ['Wind Gazing','Polishing Poop','Toilet Paper Origami','Collecting In-Flight Sick Bags','Fingernail/Toenail Collection'];
+var crushIt = ['Crush it', 'Pwn It','Rek It'];
+var adjectives = ['moaning','shaggy','spicy','tricky','colossal','hissing'];
+var nouns = ['banana','Llamamoramma and the Splendiferous Cupcake Experience','captain fantastic ','sock gnomes ','mermaid eggs '];
+var conventions = ['Association of Lincoln Presenters','World Taxidermy & Fish Carving Championships','World Clown Association','Anthrocon','Merfest','BronyCon'];
+var locations = ['New York', 'england'];
+var names = ['betch','fack'];
+//Randomize Each Array (ROUGH VERSION, WILL CHANGE)
+var randomizeOccupations = occupations[Math.floor(Math.random()*occupations.length)];
+var randomizeCrushit = crushIt [Math.floor(Math.random()*crushIt .length)];
+var randomizeAdjectives = adjectives[Math.floor(Math.random()*adjectives.length)];
+var randomizeNouns = nouns[Math.floor(Math.random()*nouns.length)];
+var randomizeConventions = conventions[Math.floor(Math.random()*conventions.length)];
+var randomizeLocations = locations[Math.floor(Math.random()*locations.length)];
+var randomizeNames = names[Math.floor(Math.random()*names.length)];
+var randomizeHobbies = hobbies[Math.floor(Math.random()*hobbies.length)];
+var story = " You are" + " " + [randomizeNames ] + " " + " you have been a" + " " + [randomizeOccupations] + " " + " for 10 years"
+    + " " + " Your favorite pastime is" + " " + [randomizeHobbies] + " " + "As for how you ended up here,  " + " " + [randomizeLocations]
+    + " " + " In your past life you were a " + " " + [randomizeAdjectives] + " " + [randomizeOccupations] + " " + " and because of our inability " +
+    "to" + " " + [randomizeCrushit] + " " + "your company fired you. In search for something new you wound up in" + " " + [randomizeLocations]
+    + " " + " You take no enjoyment from" + " " + [randomizeOccupations] + " " + "but prefer to immerse yourself in" + " " + [randomizeAdjectives]
+    + " " + [randomizeNouns] + " " + " Everyone has a darkside...for your story to be believable we you have a crippling addiction to" + " " +
+    [randomizeNouns] + " " + " and LOVE to attend" + " " + [randomizeConventions];
+//JVOX END
+
+/**
  * Created by Qzxtzrtz on 5/12/2016.
  */
 //TODO Micah section
@@ -12,49 +151,43 @@ var newOccupationDescription;
 
 /**randomAgeGenerator* randomizes a new age and stores in newAge variable.  outputs to DOM*/
 
-    function randomAgeGenerator (){
-        console.log("start randomAgeGenerator()");
-        console.log("newAge is now: "+newAge);
-        newAge = Math.floor((Math.random() * 120) + 1);
-        console.log("newAge is now: "+newAge);
-        displayDiv3();
-    }//end randomAgeGen
+function randomAgeGenerator (){
+    console.log("start randomAgeGenerator()");
+    console.log("newAge is now: "+newAge);
+    newAge = Math.floor((Math.random() * 120) + 1);
+    console.log("newAge is now: "+newAge);
+    displayDiv3();
+}//end randomAgeGen
 
 /**randomGenderGenerator* randomizes a new gender and stores in newGender variable.  outputs to DOM*/
 
-    function randomGenderGenerator(){
-        console.log("start randomGenderGenerator()");
-        var genderArray = ["Male","Female","Marilyn Manson", "Hermaphrodite"];
-        newGender = genderArray[Math.floor((Math.random() * 3) + 1)];
-        console.log("newGender is now: "+newGender);
-        displayDiv3();
-    }//end randomGenderGen
+function randomGenderGenerator(){
+    console.log("start randomGenderGenerator()");
+    var genderArray = ["Male","Female","Marilyn Manson", "Hermaphrodite"];
+    newGender = genderArray[Math.floor((Math.random() * 3) + 1)];
+    console.log("newGender is now: "+newGender);
+    displayDiv3();
+}//end randomGenderGen
 
 /**randomOccupationGenerator* randomizes a new occupation and stores in newOccupation variable.  outputs to DOM*/
 
-    function randomOccupationGenerator(){
-        console.log("start randomOccupationGenerator()");
-        console.log("occupationArray.length = "+occupationArray.length);
-        var newOccupationObj = occupationArray[Math.floor((Math.random() * 30) + 1)];
-        newOccupation = newOccupationObj.label;
-        console.log("newOccupation = "+newOccupation);
-        newOccupationDescription = newOccupationObj.description;
-        console.log("newOccupationDescription = "+newOccupationDescription);
-        displayDiv3();
-    }//end randomOccupationGenerator
+function randomOccupationGenerator(){
+    console.log("start randomOccupationGenerator()");
+    console.log("occupationArray.length = "+occupationArray.length);
+    var newOccupationObj = occupationArray[Math.floor((Math.random() * 30) + 1)];
+    newOccupation = newOccupationObj.label;
+    console.log("newOccupation = "+newOccupation);
+    newOccupationDescription = newOccupationObj.description;
+    console.log("newOccupationDescription = "+newOccupationDescription);
+    displayDiv3();
+}//end randomOccupationGenerator
 
 /**div 3 display* appends random new Age, Gender and Occupation to DOM*/
 
-    function displayDiv3(){
-        $(".div3").html("");
-        $(".div3").html("<h4>Your New Age:</h4>"+newAge+"<br><h4>Your New Gender:</h4>"+newGender+"<br><h4>Your New Occupation:</h4>"+newOccupation+"<h5>Description of your new occupation:</h5>"+newOccupationDescription);
-    }//end displayDiv3
-
-$(document).ready(function(){
-    randomAgeGenerator();
-    randomGenderGenerator();
-    randomOccupationGenerator();
-});//end documentReady
+function displayDiv3(){
+    $(".div3").html("");
+    $(".div3").html("<h4>Your New Age:</h4>"+newAge+"<br><h4>Your New Gender:</h4>"+newGender+"<br><h4>Your New Occupation:</h4>"+newOccupation+"<h5>Description of your new occupation:</h5>"+newOccupationDescription);
+}//end displayDiv3
 
 
 
