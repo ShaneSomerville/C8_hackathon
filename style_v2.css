@@ -5,6 +5,13 @@ body {
     margin:0;
     padding:0;
 }
+
+.wrapper {
+    background-color: sandybrown;
+    height: 52vh;
+    width: 50vw;
+}
+
 .container {
     background-image: url(images/clip1.png), url(images/clip2.png), url(images/clip3.png);
     background-repeat: no-repeat;
@@ -56,4 +63,7 @@ body {
 .house_img:hover {
     transition: all 1s ease;
     transform: rotate(-14.5deg) scale(2);
+}
+
+.page_3 {
 }
