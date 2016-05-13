@@ -7,11 +7,8 @@
  * listen for the document to load for click handler
  */
 $(document).ready(function () {
-    $('.div6').click(function () {
-        console.log("div6 clicked");
-        getCarPhoto();
-        getHomePhoto();
-    })
+    getCarPhoto();
+    getHomePhoto();
 });
 
 /**
@@ -25,6 +22,8 @@ function getCarPhoto() {
             method: 'flickr.photos.search',
             api_key: '3c46705eb50f63815c46f96aa8ce171d',
             nojsoncallback: '1',
+            // tags: 'car',
+            sort: 'relevance',
             text: 'car',
             format: 'json'
         },
@@ -60,7 +59,9 @@ function getHomePhoto() {
             method: 'flickr.photos.search',
             api_key: '3c46705eb50f63815c46f96aa8ce171d',
             nojsoncallback: '1',
-            text: 'house -bird',
+            // tags: 'house',
+            sort: 'relevance',
+            text: 'house',
             format: 'json'
         },
         success: function (result) {
@@ -80,9 +81,21 @@ function getHomePhoto() {
                 + server_id +'/'+ photo_id +'_'+ secret_id +'.jpg';
             console.log(image_src);
 
-            var house_image = $('<img>').attr('src', image_src).addClass('house_img');
+            var house_image = $('<img>').attr('src', image_src).addClass('house_img').click();
 
             $('.div6').append(house_image);
         }
     })
+}
+
+/**
+ * add modal popup when car and house img are clicked
+ */
+
+var car_modal = $('.car_img');
+
+function clickCar(image_src) {
+    console.log("div6 car img clicked");
+    console.log("image src is " + image_src);
+    $('img').attr('src', image_src);
 }
