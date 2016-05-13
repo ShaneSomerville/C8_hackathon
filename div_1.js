@@ -13,13 +13,17 @@ function get_identity(){
         success: function(result){
             var FirstName=result.name;
             var LastName=result.surname;
-            var Gender=result.gender;
             var Region=result.region;
-            var div_1_paragraph=$('<p>').html(FirstName+ ' '+ LastName+ ', '+ Gender+ ', '+ Region);
+            var div_1_paragraph=$('<p>').html(FirstName+ ' '+ LastName+ ', '+ Region);
             $('.div1').append(div_1_paragraph);
+            /** added by Micah*/
+            $("#lName").html(LastName);
+            $("#fName").html(FirstName);
+            $("#place_of_issue").html(Region);
         },
         error: function(){
             console.log('call was unsuccessful')
         }
     })
 }
+
