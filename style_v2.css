@@ -9,3 +9,22 @@ body {
     width:100%;
     height:100%;
 }
+.page_1 {
+    height:800px;
+    width:600px;
+    background-image: url(images/new_passport.png);
+}
+.page_2 {
+    background-color: snow;
+    height:52vw;
+    width:50vw;
+}
+.top_space {
+    padding-bottom: 100px;
+}
+.space_between {
+    line-height: 400%;
+    font-family: "Special Elite";
+    font-size: 0.7vw;
+    padding: 0 50px;
+}
