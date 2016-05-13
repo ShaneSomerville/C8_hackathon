@@ -82,7 +82,7 @@ function getCarPhoto() {
 
             var car_image = $('<img>').attr('src', image_src).addClass('car_img');
 
-            $('.page_3').append(car_image);
+            $('.polaroid_1').append(car_image);
         }
     })
 }
@@ -118,7 +118,7 @@ function getHomePhoto() {
 
             var house_image = $('<img>').attr('src', image_src).addClass('house_img');
 
-            $('.page_3').append(house_image);
+            $('.polaroid_2').append(house_image);
         }
     })
 }
