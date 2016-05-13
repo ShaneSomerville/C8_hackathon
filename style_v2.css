@@ -6,6 +6,54 @@ body {
     padding:0;
 }
 .container {
+    background-image: url(images/clip1.png), url(images/clip2.png), url(images/clip3.png);
+    background-repeat: no-repeat;
+    background-position: top right 20%, top left 20%, center bottom;
+    background-size: 25%, 25%, 30%;
+    position: relative;
     width:100%;
     height:100%;
+}
+
+.page_1 {
+    position: relative;
+    top: 6vh;
+    left: 17.5%;
+    float: left;
+    width: 19vw;
+    height: 30vh;
+    transform: rotate(-14.5deg);
+    transition: all 1s ease;
+}
+
+.car_img {
+    height: 100%;
+    width: 100%;
+}
+
+.car_img:hover {
+    transition: all 1s ease;
+    transform: rotate(14.5deg) scale(2);
+}
+
+
+.page_2 {
+    position: relative;
+    float: right;
+    top: 7vh;
+    right: 17vw;
+    width: 20vw;
+    height: 26vh;
+    transform: rotate(14deg);
+    transition: all 1s ease;
+}
+
+.house_img {
+    width: 100%;
+    height: 100%;
+}
+
+.house_img:hover {
+    transition: all 1s ease;
+    transform: rotate(-14.5deg) scale(2);
 }

@@ -8,15 +8,13 @@ var lastName;
 //END GLOBAL VARIABLES
 
 $(document).ready(function(){
-    get_identity();
-    $('.div6').click(function () {
-        console.log("div6 clicked");
+    // get_identity();
         getCarPhoto();
         getHomePhoto();
-    });
 
-    randomAgeGenerator();
-    randomGenderGenerator();
+
+    // randomAgeGenerator();
+    // randomGenderGenerator();
 
 });
 
@@ -24,26 +22,26 @@ $(document).ready(function(){
 //This function makes an ajax call to the uinames api and asks it for a randomly generated first/last name, gender, and region.
 // overlapping functionality on the gender with Micah's random gender generator, so removed gender from here to have more than 2 input options.
 //info to be plugged into the passport image along with the age generator.
-function get_identity(){
-    $.ajax({
-        method: 'get',
-        datatype: 'json',
-        url: 'http://uinames.com/api/',
-        success: function(result){
-            firstName=result.name;
-            lastName=result.surname;
-            region=result.region;
-            var div_1_paragraph=$('<p>').html(firstName+ ' '+ lastName+ ', '  + region);
-            $('.div1').append(div_1_paragraph);
-            initialize();
-            randomOccupationGenerator();
-            displayDiv4();
-        },
-        error: function(){
-            console.log('call was unsuccessful')
-        }
-    })
-}
+// function get_identity(){
+//     $.ajax({
+//         method: 'get',
+//         datatype: 'json',
+//         url: 'http://uinames.com/api/',
+//         success: function(result){
+//             firstName=result.name;
+//             lastName=result.surname;
+//             region=result.region;
+//             var div_1_paragraph=$('<p>').html(firstName+ ' '+ lastName+ ', '  + region);
+//             $('.div1').append(div_1_paragraph);
+//             initialize();
+//             randomOccupationGenerator();
+//             displayDiv4();
+//         },
+//         error: function(){
+//             console.log('call was unsuccessful')
+//         }
+//     })
+// }
 //START FUNCTIONS FOR POLOROID PICTURES
 /**
  * getCarPhotos - pulls car photos from flickr api
@@ -56,6 +54,7 @@ function getCarPhoto() {
             method: 'flickr.photos.search',
             api_key: '3c46705eb50f63815c46f96aa8ce171d',
             nojsoncallback: '1',
+            sort: 'relevance',
             text: 'car',
             format: 'json'
         },
@@ -78,7 +77,7 @@ function getCarPhoto() {
 
             var car_image = $('<img>').attr('src', image_src).addClass('car_img');
 
-            $('.div6').append(car_image);
+            $('.page_1').append(car_image);
         }
     })
 }
@@ -91,7 +90,8 @@ function getHomePhoto() {
             method: 'flickr.photos.search',
             api_key: '3c46705eb50f63815c46f96aa8ce171d',
             nojsoncallback: '1',
-            text: 'house -bird',
+            sort: 'relevance',
+            text: 'house',
             format: 'json'
         },
         success: function (result) {
@@ -113,7 +113,7 @@ function getHomePhoto() {
 
             var house_image = $('<img>').attr('src', image_src).addClass('house_img');
 
-            $('.div6').append(house_image);
+            $('.page_2').append(house_image);
         }
     })
 }
