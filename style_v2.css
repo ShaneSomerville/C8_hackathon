@@ -22,7 +22,7 @@ body {
     height:100%;
 }
 
-.page_1 {
+.polaroid_1 {
     position: relative;
     top: 6vh;
     left: 17.5%;
@@ -44,7 +44,7 @@ body {
 }
 
 
-.page_2 {
+.polaroid_2 {
     position: relative;
     float: right;
     top: 7vh;
@@ -65,5 +65,70 @@ body {
     transform: rotate(-14.5deg) scale(2);
 }
 
+.polaroid_3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/*PAGE 1 CONTENT*/
+.page_1 {
+    height:759px;
+    width:600px;
+    background-image: url(images/new_passport1.png);
+}
+#photo {
+    width: 127px;
+    height: 199px;
+    left: 14px;
+    top: 80px;
+}
+#lName {
+    width: 80px;
+    height: 20px;
+    left: 151px;
+    top: 80px;
+}
+#fName {
+    width: 107px;
+    height: 22px;
+    left: 151px;
+    top: 108px;
+}
+#place_of_issue {
+    width: 107px;
+    height: 18px;
+    left: 150px;
+    top: 190px;
+}
+#gender {
+    width: 107px;
+    height: 17px;
+    left: 333px;
+    top: 191px;
+}
+/*PAGE 2 CONTENT*/
+.page_2 {
+    background-color: snow;
+    height:52vw;
+    width:50vw;
+    border: 1px solid black;
+}
+.top_space {
+    padding-bottom: 100px;
+}
+.space_between {
+    line-height: 400%;
+    font-family: "Special Elite";
+    font-size: 0.7vw;
+    padding: 0 50px;
+}
+.sepia {
+    -webkit-filter: sepia(90%);
+}
+/*PAGE 3 */
 .page_3 {
+    background-color:snow;
+    height:52vw;
+    width:50vw;
+    border: 1px solid black;
 }

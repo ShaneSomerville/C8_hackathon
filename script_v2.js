@@ -1,47 +1,52 @@
 /**
- * Created by somer on 5/12/2016.
+ * Created by somer on 5/13/2016.
  */
 //GLOBAL VARIABLES
+//    for passport
 var region;
 var firstName;
 var lastName;
+var newAge;
+var newGender;
+//for description page(2)
+var newOccupation;
+var newOccupationDescription;
 //END GLOBAL VARIABLES
 
+
+//START DOC READY
 $(document).ready(function(){
-    // get_identity();
-        getCarPhoto();
-        getHomePhoto();
-
-
-    // randomAgeGenerator();
-    // randomGenderGenerator();
+    get_identity();
+    getCarPhoto();
+    getHomePhoto();
+    randomAgeGenerator();
+    randomGenderGenerator();
 
 });
+//END DOC READY
 
 
 //This function makes an ajax call to the uinames api and asks it for a randomly generated first/last name, gender, and region.
 // overlapping functionality on the gender with Micah's random gender generator, so removed gender from here to have more than 2 input options.
 //info to be plugged into the passport image along with the age generator.
-// function get_identity(){
-//     $.ajax({
-//         method: 'get',
-//         datatype: 'json',
-//         url: 'http://uinames.com/api/',
-//         success: function(result){
-//             firstName=result.name;
-//             lastName=result.surname;
-//             region=result.region;
-//             var div_1_paragraph=$('<p>').html(firstName+ ' '+ lastName+ ', '  + region);
-//             $('.div1').append(div_1_paragraph);
-//             initialize();
-//             randomOccupationGenerator();
-//             displayDiv4();
-//         },
-//         error: function(){
-//             console.log('call was unsuccessful')
-//         }
-//     })
-// }
+function get_identity(){
+    $.ajax({
+        method: 'get',
+        datatype: 'json',
+        url: 'http://uinames.com/api/',
+        success: function(result){
+            firstName=result.name;
+            lastName=result.surname;
+            region=result.region;
+            initialize();
+            randomOccupationGenerator();
+            displayDiv4();
+        },
+        error: function(){
+            console.log('call was unsuccessful')
+        }
+    })
+}
 //START FUNCTIONS FOR POLOROID PICTURES
 /**
  * getCarPhotos - pulls car photos from flickr api
@@ -77,7 +82,7 @@ function getCarPhoto() {
 
             var car_image = $('<img>').attr('src', image_src).addClass('car_img');
 
-            $('.polaroid_1').append(car_image);
+            $('.page_3').append(car_image);
         }
     })
 }
@@ -90,8 +95,8 @@ function getHomePhoto() {
             method: 'flickr.photos.search',
             api_key: '3c46705eb50f63815c46f96aa8ce171d',
             nojsoncallback: '1',
-            sort: 'relevance',
-            text: 'house',
+            sort:'relevance',
+            text: 'house -bird',
             format: 'json'
         },
         success: function (result) {
@@ -113,21 +118,16 @@ function getHomePhoto() {
 
             var house_image = $('<img>').attr('src', image_src).addClass('house_img');
 
-            $('.polaroid_2').append(house_image);
+            $('.page_3').append(house_image);
         }
     })
 }
-
-//END POLOROID FUNCTION
-
+//END POLOROID FUNCTIONS
 
 // 3 functions: randomAgeGenerator , randomGenderGenerator, randomOccupationGenerator
 // outputs: new age, gender, occupation to div3.
 
-var newAge;
-var newGender;
-var newOccupation;
-var newOccupationDescription;
+
 
 /**randomAgeGenerator* randomizes a new age and stores in newAge variable.  outputs to DOM*/
 
@@ -165,19 +165,19 @@ function randomOccupationGenerator(){
 
 /**div 3 display* appends random new Age, Gender and Occupation to DOM*/
 
-    function displayDiv3(){
-        $(".div3").html("");
-        $(".div3").html("<h4>Your New Age:</h4>"+newAge+"<br><h4>Your New Gender:</h4>"+newGender+"<br><h4>Your New Occupation:</h4>"+newOccupation+"<h5>Description of your new occupation:</h5>"+newOccupationDescription);
-    }//end displayDiv3
+function displayDiv3(){
+    $(".page_2").html("");
+    $(".page_2").html("<h4>Your New Age:</h4>"+newAge+"<br><h4>Your New Gender:</h4>"+newGender+"<br><h4>Your New Occupation:</h4>"+newOccupation+"<h5>Description of your new occupation:</h5>"+newOccupationDescription);
+}//end displayDiv3
 
 /**div 4 display* appends Gender to div 4 in DOM*/
 
-    function displayDiv4(){
-        $("#gender").html(newGender);
-        $("#lName").html(lastName);
-        $("#fName").html(firstName);
-        $("#place_of_issue").html(region);
-    }//end displayDiv3
+function displayDiv4(){
+    $("#gender").html(newGender);
+    $("#lName").html(lastName);
+    $("#fName").html(firstName);
+    $("#place_of_issue").html(region);
+}//end displayDiv3
 
 
 
