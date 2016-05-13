@@ -14,9 +14,9 @@ body {
 }
 /*PAGE 1 CONTENT*/
 .page_1 {
-    height:800px;
+    height:759px;
     width:600px;
-    background-image: url(images/new_passport.png);
+    background-image: url(images/new_passport1.png);
 }
 #photo {
     width: 127px;
@@ -53,6 +53,7 @@ body {
     background-color: snow;
     height:52vw;
     width:50vw;
+    border: 1px solid black;
 }
 .top_space {
     padding-bottom: 100px;
@@ -63,4 +64,13 @@ body {
     font-size: 0.7vw;
     padding: 0 50px;
 }
+.sepia {
+    -webkit-filter: sepia(90%);
+}
 /*PAGE 3 */
+.page_3 {
+    background-color:snow;
+    height:52vw;
+    width:50vw;
+    border: 1px solid black;
+}
