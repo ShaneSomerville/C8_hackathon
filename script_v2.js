@@ -82,7 +82,7 @@ function getCarPhoto() {
 
             var car_image = $('<img>').attr('src', image_src).addClass('car_img');
 
-            $('.page_3').append(car_image);
+            $('.polaroid_1').append(car_image);
         }
     })
 }
@@ -95,8 +95,8 @@ function getHomePhoto() {
             method: 'flickr.photos.search',
             api_key: '3c46705eb50f63815c46f96aa8ce171d',
             nojsoncallback: '1',
-            sort:'relevance',
-            text: 'house -bird',
+            sort: 'relevance',
+            text: 'house',
             format: 'json'
         },
         success: function (result) {
@@ -118,7 +118,7 @@ function getHomePhoto() {
 
             var house_image = $('<img>').attr('src', image_src).addClass('house_img');
 
-            $('.page_3').append(house_image);
+            $('.polaroid_2').append(house_image);
         }
     })
 }
@@ -166,8 +166,8 @@ function randomOccupationGenerator(){
 /**div 3 display* appends random new Age, Gender and Occupation to DOM*/
 
 function displayDiv3(){
-    $(".page_2").html("");
-    $(".page_2").html("<h4>Your New Age:</h4>"+newAge+"<br><h4>Your New Gender:</h4>"+newGender+"<br><h4>Your New Occupation:</h4>"+newOccupation+"<h5>Description of your new occupation:</h5>"+newOccupationDescription);
+    $(".space_between").html("");
+    $(".space_between").html("<h4>Your New Age:</h4>"+newAge+"<br><h4>Your New Gender:</h4>"+newGender+"<br><h4>Your New Occupation:</h4>"+newOccupation+"<h5>Description of your new occupation:</h5>"+newOccupationDescription);
 }//end displayDiv3
 
 /**div 4 display* appends Gender to div 4 in DOM*/

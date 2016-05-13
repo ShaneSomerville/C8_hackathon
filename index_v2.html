@@ -6,8 +6,6 @@
     <link href='https://fonts.googleapis.com/css?family=Special+Elite' rel='stylesheet' type='text/css'>
     <script src="script_v2.js"></script>
     <link href="style_v2.css" rel="stylesheet" type="text/css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
-    <script src="javathehutt.js"></script>
     <meta name="viewport" content="initial-scale=1.0">
 </head>
 <body>
@@ -22,11 +20,49 @@
         <div class="page_2 sepia">
             <div class="top_space"></div>
             <p class="space_between">
-        </div>
+
+            </div>
         <div class="page_3 sepia">
             <div class="polaroid_1"></div>
             <div class="polaroid_2"></div>
-            <div class="polaroid_3"></div>
+            <div class="polaroid_3">
+
+                <script>
+
+                    var geocoder;
+                    var map;
+                    var address; // this will be set equal to Shane's country variable
+                    console.log(region , address);
+                    function initialize() {
+                        address=region;
+                        geocoder = new google.maps.Geocoder();
+                        var latlng = new google.maps.LatLng(39.039, 125.763);
+                        var mapOptions = {
+                            zoom: 4,
+                            center: latlng
+                        };
+                        map = new google.maps.Map(document.getElementById("map"), mapOptions);
+                        codeAddress();
+                    }
+
+                    function codeAddress() {
+
+                        geocoder.geocode( { 'address': address}, function(results, status) {
+                            if (status == google.maps.GeocoderStatus.OK) {
+                                map.setCenter(results[0].geometry.location);
+                                var marker = new google.maps.Marker({
+                                    map: map,
+                                    position: results[0].geometry.location
+                                });
+                            } else {
+                                alert("Geocode was not successful for the following reason: " + status);
+                            }
+                        });
+                    }
+                </script>
+
+                <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-9oIod8mgLqzttLY9zP_JRcdAVkcRPic" async defer></script>
+            </div>
         </div>
         </div>
     </div>
