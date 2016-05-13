@@ -14,7 +14,7 @@
         <div class="section div3"></div>
         <div class="section div4">
             <div id="photo"></div>
-            <div id="lName"></div>
+            <div id="lName">penis</div>
             <div id="fName"></div>
             <div id="place_of_issue"></div>
             <div id="gender"></div>
@@ -30,8 +30,10 @@
 
                 var geocoder;
                 var map;
-                var address = "Canada"; // this will be set equal to Shane's country variable
+                var address; // this will be set equal to Shane's country variable
+                console.log(region , address);
                 function initialize() {
+                    address=region;
                     geocoder = new google.maps.Geocoder();
                     var latlng = new google.maps.LatLng(39.039, 125.763);
                     var mapOptions = {
@@ -58,7 +60,7 @@
                 }
             </script>
 
-            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-9oIod8mgLqzttLY9zP_JRcdAVkcRPic&callback=initialize" async defer></script>
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-9oIod8mgLqzttLY9zP_JRcdAVkcRPic" async defer></script>
 
 
         </div>

@@ -13,6 +13,10 @@ $(document).ready(function(){
     randomGenderGenerator();
     randomOccupationGenerator();
 });
+//GLOBAL VARIABLES
+var region;
+//END GLOBAL VARIABLES
+
 //This function makes an ajax call to the uinames api and asks it for a randomly generated first/last name, gender, and region.
 // overlapping functionality on the gender with Micah's random gender generator, so removed gender from here to have more than 2 input options.
 //info to be plugged into the passport image along with the age generator.
@@ -22,11 +26,12 @@ function get_identity(){
         datatype: 'json',
         url: 'http://uinames.com/api/',
         success: function(result){
-            var FirstName=result.name;
-            var LastName=result.surname;
-            var Region=result.region;
-            var div_1_paragraph=$('<p>').html(FirstName+ ' '+ LastName+ ', '+ Gender+ ', '+ Region);
+            var firstName=result.name;
+            var lastName=result.surname;
+            region=result.region;
+            var div_1_paragraph=$('<p>').html(firstName+ ' '+ lastName+ ', '+ region);
             $('.div1').append(div_1_paragraph);
+            initialize();
         },
         error: function(){
             console.log('call was unsuccessful')
