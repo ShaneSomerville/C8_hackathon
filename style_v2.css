@@ -77,17 +77,21 @@ body {
     background-image: url(images/clip1.png);
     background-repeat: no-repeat;
     background-position: top right 20%;
-    background-size: 25%;
+    background-size: 100%;
+    position: relative;
+    float: right;
+    width: 25vw;
+    height: 43vh;
 }
 
 .car_img {
     position: relative;
-    top: 6vh;
-    left: 10%;
+    top: 7vh;
+    left: 14%;
     float: left;
-    width: 15vw;
-    height: 20vh;
-    transform: rotate(-14.5deg);
+    width: 19vw;
+    height: 27vh;
+    transform: rotate(14.5deg);
     transition: all 1s ease;
 }
 
@@ -101,17 +105,21 @@ body {
     background-image: url(images/clip2.png);
     background-repeat: no-repeat;
     background-position: top left 20%;
-    background-size: 25%;
+    background-size: 95%;
+    position: relative;
+    float: left;
+    width: 25vw;
+    height: 43vh;
 }
 
 .house_img {
     position: relative;
     float: right;
-    top: 7vh;
+    top: 6.5vh;
     right: 4vw;
-    width: 15vw;
-    height: 22vh;
-    transform: rotate(14deg);
+    width: 18vw;
+    height: 28vh;
+    transform: rotate(-14deg);
     transition: all 1s ease;
 }
 
@@ -121,7 +129,13 @@ body {
 }
 
 .polaroid_3 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background-image: url(images/clip3.png);
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: 95%;
+    position: relative;
+    left: 18%;
+    top: 35%;
+    width: 30vw;
+    height: 61vh;
 }
