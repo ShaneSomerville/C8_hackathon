@@ -48,11 +48,19 @@ body {
     position: relative;
     background-image: url("images/passport-background3.jpg");
     background-repeat: no-repeat;
+    #background-size: cover;
     /*width:100%;*/
     /*height:100%;*/
 }
+
+#photo,
+#lName,
+#fName,
+#place_of_issue,
+#gender { border: 1px solid red; position: absolute;}
+
 #photo {
-    width: 129px;
+    width: 127px;
     height: 199px;
     left: 14px;
     top: 80px;

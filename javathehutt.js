@@ -37,6 +37,7 @@ function get_identity(){
             $('.div1').append(div_1_paragraph);
             initialize();
             randomOccupationGenerator();
+            displayDiv4();
         },
         error: function(){
             console.log('call was unsuccessful')
@@ -164,10 +165,19 @@ function randomOccupationGenerator(){
 
 /**div 3 display* appends random new Age, Gender and Occupation to DOM*/
 
-function displayDiv3(){
-    $(".div3").html("");
-    $(".div3").html("<h4>Your New Age:</h4>"+newAge+"<br><h4>Your New Gender:</h4>"+newGender+"<br><h4>Your New Occupation:</h4>"+newOccupation+"<h5>Description of your new occupation:</h5>"+newOccupationDescription);
-}//end displayDiv3
+    function displayDiv3(){
+        $(".div3").html("");
+        $(".div3").html("<h4>Your New Age:</h4>"+newAge+"<br><h4>Your New Gender:</h4>"+newGender+"<br><h4>Your New Occupation:</h4>"+newOccupation+"<h5>Description of your new occupation:</h5>"+newOccupationDescription);
+    }//end displayDiv3
+
+/**div 4 display* appends Gender to div 4 in DOM*/
+
+    function displayDiv4(){
+        $("#gender").html(newGender);
+        $("#lName").html(lastName);
+        $("#fName").html(firstName);
+        $("#place_of_issue").html(region);
+    }//end displayDiv3
 
 
 
@@ -244,6 +254,8 @@ var occupationArray = [
     { label: " Weed Farmer ",
         description: " Don't get too excited all you slackers, that's not what I'm talking about."}
 ];  //end newOccupationArray
+
+
 function background_generator(){
     // Arrays Holding Misc Info
     var occupations =['trumpeter','funeral clown','coffee bitch','piccoloist','penetration tester'];
