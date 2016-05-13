@@ -50,10 +50,17 @@ var newOccupationDescription;
         $(".div3").html("<h4>Your New Age:</h4>"+newAge+"<br><h4>Your New Gender:</h4>"+newGender+"<br><h4>Your New Occupation:</h4>"+newOccupation+"<h5>Description of your new occupation:</h5>"+newOccupationDescription);
     }//end displayDiv3
 
+/**div 4 display* appends Gender to div 4 in DOM*/
+
+    function displayDiv4(){
+        $("#gender").html(newGender);
+    }//end displayDiv3
+
 $(document).ready(function(){
     randomAgeGenerator();
     randomGenderGenerator();
     randomOccupationGenerator();
+    displayDiv4();
 });//end documentReady
 
 
