@@ -21,8 +21,10 @@ $(document).ready(function(){
     getHomePhoto();
     randomAgeGenerator();
     randomGenderGenerator();
-    randomOccupationGenerator();
-
+    $(".up").on("click", function() {
+        console.log("fuck");
+        $(this).toggleClass("slide");
+    })
 });
 //END DOC READY
 
@@ -40,7 +42,7 @@ function get_identity(){
             lastName=result.surname;
             region=result.region;
             initialize();
-            //randomOccupationGenerator();
+            randomOccupationGenerator();
             displayToPassport();
         },
         error: function(){
@@ -167,8 +169,12 @@ function randomOccupationGenerator(){
 /**displayNewIdentity* appends random new Age, Gender and Occupation to DOM*/
 
 function displayNewIdentity(){
-    $(".space_between").html("");
-    $(".space_between").html("<h3>Welcome to your new life :</h3>"+"<h4>Your New Age:</h4>"+newAge+"<br><h4>Your New Gender:</h4>"+newGender+"<br><h4>Your New Occupation:</h4>"+newOccupation+"<h5>Description of your new occupation:</h5>"+newOccupationDescription);
+    $('.space_between').html('');
+    var welcome_to_life=$('<h3>').html('Welcome to your new life :');
+    var new_age_page_2=$('<h4>').html('Your New Age: ' + newAge);
+    var new_gender_page_2=$('<h4>').html('Your New Gender: ' + newGender);
+    var new_occupation_page_2=$('<h4>').html('Your New Occupation:' + newOccupation);
+    $('.space_between').append(welcome_to_life, new_age_page_2, new_gender_page_2, new_occupation_page_2);
 }//end displayNewIdentity
 
 /**div 4 display* appends Gender to div 4 in DOM*/
