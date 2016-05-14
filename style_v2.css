@@ -13,34 +13,39 @@ body {
     background-image: url(images/new_passport1.png);
 }
 #photo {
-    width: 127px;
-    height: 199px;
-    left: 14px;
-    top: 80px;
+    position: relative;
+    width: 28%;
+    height: 30%;
+    left: 3%;
+    top: 67%;
 }
 #lName {
-    width: 80px;
-    height: 20px;
-    left: 151px;
-    top: 80px;
+    width: 23%;
+    height: 3%;
+    left: 34%;
+    top: 37%;
+    position: relative;
 }
 #fName {
-    width: 107px;
-    height: 22px;
-    left: 151px;
-    top: 108px;
+    width: 30%;
+    height: 3%;
+    left: 34%;
+    top: 38%;
+    position: relative;
 }
 #place_of_issue {
-    width: 107px;
-    height: 18px;
-    left: 150px;
-    top: 190px;
+    width: 23%;
+    height: 3%;
+    left: 34%;
+    top: 48%;
+    position: relative;
 }
 #gender {
-    width: 107px;
-    height: 17px;
-    left: 333px;
-    top: 191px;
+    width: 23%;
+    height: 3%;
+    left: 76%;
+    top: 45%;
+    position: relative;
 }
 /*PAGE 2 CONTENT*/
 .page_2 {
@@ -92,12 +97,11 @@ body {
     width: 19vw;
     height: 27vh;
     transform: rotate(14.5deg);
-    transition: all 1s ease;
 }
 
-.car_img:hover {
+.polaroid_1:hover {
     transition: all 1s ease;
-    transform: rotate(14.5deg) scale(2);
+    transform: rotate(-14.5deg) scale(1.25);
 }
 
 
@@ -120,12 +124,11 @@ body {
     width: 18vw;
     height: 28vh;
     transform: rotate(-14deg);
-    transition: all 1s ease;
 }
 
-.house_img:hover {
+.polaroid_2:hover {
     transition: all 1s ease;
-    transform: rotate(-14.5deg) scale(2);
+    transform: rotate(14deg) scale(1.25);
 }
 
 .polaroid_3 {
@@ -138,4 +141,16 @@ body {
     top: 35%;
     width: 30vw;
     height: 61vh;
+}
+
+#map {
+    width: 71%;
+    height: 60%;
+    top: -50%;
+    left: 16%;
+}
+
+.polaroid_3:hover {
+    transition: all 1s ease;
+    transform: scale(1.25);
 }
