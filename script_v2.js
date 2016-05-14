@@ -21,6 +21,7 @@ $(document).ready(function(){
     getHomePhoto();
     randomAgeGenerator();
     randomGenderGenerator();
+    randomOccupationGenerator();
 
 });
 //END DOC READY
@@ -39,8 +40,8 @@ function get_identity(){
             lastName=result.surname;
             region=result.region;
             initialize();
-            randomOccupationGenerator();
-            displayDiv4();
+            //randomOccupationGenerator();
+            displayToPassport();
         },
         error: function(){
             console.log('call was unsuccessful')
@@ -122,7 +123,7 @@ function getHomePhoto() {
         }
     })
 }
-//END POLOROID FUNCTIONS
+//END POLAROID FUNCTIONS
 
 // 3 functions: randomAgeGenerator , randomGenderGenerator, randomOccupationGenerator
 // outputs: new age, gender, occupation to div3.
@@ -136,7 +137,7 @@ function randomAgeGenerator (){
     console.log("newAge is now: "+newAge);
     newAge = Math.floor((Math.random() * 120) + 1);
     console.log("newAge is now: "+newAge);
-    displayDiv3();
+    displayNewIdentity();
 }//end randomAgeGen
 
 /**randomGenderGenerator* randomizes a new gender and stores in newGender variable.  outputs to DOM*/
@@ -146,7 +147,7 @@ function randomGenderGenerator(){
     var genderArray = ["Male","Female","Marilyn Manson", "Hermaphrodite"];
     newGender = genderArray[Math.floor((Math.random() * 3) + 1)];
     console.log("newGender is now: "+newGender);
-    displayDiv3();
+    displayNewIdentity();
 }//end randomGenderGen
 
 /**randomOccupationGenerator* randomizes a new occupation and stores in newOccupation variable.  outputs to DOM*/
@@ -159,25 +160,25 @@ function randomOccupationGenerator(){
     console.log("newOccupation = "+newOccupation);
     newOccupationDescription = newOccupationObj.description;
     console.log("newOccupationDescription = "+newOccupationDescription);
-    displayDiv3();
+    displayNewIdentity();
     background_generator();
 }//end randomOccupationGenerator
 
-/**div 3 display* appends random new Age, Gender and Occupation to DOM*/
+/**displayNewIdentity* appends random new Age, Gender and Occupation to DOM*/
 
-function displayDiv3(){
+function displayNewIdentity(){
     $(".space_between").html("");
-    $(".space_between").html("<h4>Your New Age:</h4>"+newAge+"<br><h4>Your New Gender:</h4>"+newGender+"<br><h4>Your New Occupation:</h4>"+newOccupation+"<h5>Description of your new occupation:</h5>"+newOccupationDescription);
-}//end displayDiv3
+    $(".space_between").html("<h3>Welcome to your new life :</h3>"+"<h4>Your New Age:</h4>"+newAge+"<br><h4>Your New Gender:</h4>"+newGender+"<br><h4>Your New Occupation:</h4>"+newOccupation+"<h5>Description of your new occupation:</h5>"+newOccupationDescription);
+}//end displayNewIdentity
 
 /**div 4 display* appends Gender to div 4 in DOM*/
 
-function displayDiv4(){
+function displayToPassport(){
     $("#gender").html(newGender);
     $("#lName").html(lastName);
     $("#fName").html(firstName);
     $("#place_of_issue").html(region);
-}//end displayDiv3
+}//end displayToPassport
 
 
 
@@ -281,6 +282,6 @@ function background_generator(){
         + ". " + " You take no enjoyment from" + " " + [randomizeOccupations] + " " + "but prefer to immerse yourself in" + " " + [randomizeAdjectives]
         + " " + [randomizeNouns] + ". " + " Everyone has a darkside...for your story to be believable you now have a crippling addiction to" + " " +
         [randomizeNouns] + " " + " and LOVE to attend" + " " + [randomizeConventions] + '.';
-    $(".section.div2").append(story);
+    $(".new-identity").append("<h4 class='new-story-heading'>Description of your new background:</h4>"+"<p class='new-story-para'>"+story+"</p>");
 }
 //END BR GENERATOR

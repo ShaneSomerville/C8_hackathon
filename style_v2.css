@@ -4,130 +4,108 @@ body {
     height:100vh;
     margin:0;
     padding:0;
-}
-.container {
-    width:100%;
-    height:100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    font-family: "Special Elite";
 }
 
 /*PAGE 1 CONTENT*/
-.page_1 {
-    height:759px;
-    width:600px;
-    background-image: url(images/new_passport1.png);
-}
-#photo {
-    width: 127px;
-    height: 199px;
-    left: 14px;
-    top: 80px;
-}
-#lName {
-    width: 80px;
-    height: 20px;
-    left: 151px;
-    top: 80px;
-}
-#fName {
-    width: 107px;
-    height: 22px;
-    left: 151px;
-    top: 108px;
-}
-#place_of_issue {
-    width: 107px;
-    height: 18px;
-    left: 150px;
-    top: 190px;
-}
-#gender {
-    width: 107px;
-    height: 17px;
-    left: 333px;
-    top: 191px;
-}
+/** use andrew's code*/
 /*PAGE 2 CONTENT*/
 .page_2 {
     background-color: snow;
     height:52vw;
     width:50vw;
     border: 1px solid black;
+    position: relative;
+    left: 20vw;
+    top: -10vh;
 }
 .top_space {
     padding-bottom: 100px;
 }
 .space_between {
-    line-height: 400%;
-    font-family: "Special Elite";
+    line-height: 200%;
     font-size: 0.7vw;
     padding: 0 50px;
 }
 .sepia {
     -webkit-filter: sepia(90%);
 }
-/*PAGE 3 */
+.new-story-heading{}
+
+.new-story-para { text-indent: 3em; padding: 3em;  }
+
+/*
+*   Page 3 content
+*/
 .page_3 {
-    background-image: url(images/clip1.png), url(images/clip3.png);
-    background-repeat: no-repeat;
-    background-position: top right 20%, top left 20%, center bottom;
-    background-size: 25%, 25%, 30%;
     position: relative;
-    width:100%;
-    height:100%;
+    background-color:snow;
+    height:52vw;
+    width:50vw;
+    border: 1px solid black;
 }
+
 .polaroid_1 {
     background-image: url(images/clip1.png);
     background-repeat: no-repeat;
     background-position: top right 20%;
-    background-size: 25%;
+    background-size: 100%;
+    position: relative;
+    float: right;
+    width: 25vw;
+    height: 43vh;
 }
+
+.car_img {
+    position: relative;
+    top: 7vh;
+    left: 14%;
+    float: left;
+    width: 19vw;
+    height: 27vh;
+    transform: rotate(14.5deg);
+}
+
+.polaroid_1:hover {
+    transition: all 1s ease;
+    transform: rotate(-14.5deg) scale(1.25);
+}
+
+
 .polaroid_2 {
     background-image: url(images/clip2.png);
     background-repeat: no-repeat;
     background-position: top left 20%;
-    background-size: 25%;
-}
-.car_img {
-    height: 100%;
-    width: 100%;
+    background-size: 95%;
     position: relative;
-    top: 6vh;
-    left: 17.5%;
     float: left;
-    width: 19vw;
-    height: 30vh;
-    transform: rotate(-14.5deg);
-    transition: all 1s ease;
-}
-
-.car_img:hover {
-    transition: all 1s ease;
-    transform: rotate(14.5deg) scale(2);
+    width: 25vw;
+    height: 43vh;
 }
 
 .house_img {
-    width: 100%;
-    height: 100%;
     position: relative;
     float: right;
-    top: 7vh;
-    right: 17vw;
-    width: 20vw;
-    height: 26vh;
-    transform: rotate(14deg);
-    transition: all 1s ease;
+    top: 6.5vh;
+    right: 4vw;
+    width: 18vw;
+    height: 28vh;
+    transform: rotate(-14deg);
 }
 
-.house_img:hover {
+.polaroid_2:hover{
     transition: all 1s ease;
-    transform: rotate(-14.5deg) scale(2);
+    transform: rotate(14.5deg) scale(1.25);
 }
 
 .polaroid_3 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background-image: url(images/clip3.png);
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: 95%;
+    position: relative;
+    left: 18%;
+    top: 35%;
+    width: 30vw;
+    height: 61vh;
 }
