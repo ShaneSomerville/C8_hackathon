@@ -1,11 +1,12 @@
 /*GENERAL*/
 body {
-    background-image: url(images/planks_background.jpg);
+    background: url(images/planks_background.jpg) no-repeat center fixed;
+    background-size: cover;
     width:100vw;
     height:100vh;
     margin:0;
     padding:0;
-    font-family: "Special Elite";
+    font-family: "Special Elite", sans-serif;
 }
 .container {
     width:100%;
@@ -15,22 +16,32 @@ body {
     width: 60%;
     height: 90%;
     position: fixed;
+    background: url(images/paper_textured.jpg) no-repeat center;
+    background-size: cover;
+}
 
+.blood {
+    position: fixed;
+    opacity: .5;
+    top: 10%;
+    right: 0;
+    height: 90%;
+    width: auto;
+    z-index: 2;
 }
 
 /*PAGE 1 CONTENT*/
 .page_1 {
     z-index: 30;
-    top: 70%;
-    left: 55%;
-    height:759px;
-    width:600px;
+    top: 82%;
+    left: 36%;
+    height:60%;
+    width:47%;
     position: fixed;
-    background-image: url(images/new_passport12.png);
-    background-size: cover;
-    font-family: Verdana;
+    background: url(images/new_passport12.png) no-repeat center;
+    background-size: 100% 100%;
+    font-family: Verdana, sans-serif;
     font-weight: bold;
-    border: 1px solid black;
 }
 #photo {
     position: relative;
@@ -70,38 +81,44 @@ body {
 /*PAGE 2 CONTENT*/
 .page_2 {
     z-index: 10;
-    top: 73%;
+    top: 74%;
     left: 22%;
     background-color: #D9C6A8;
-    border: 1px solid black;
+
+}
+.top_space {
+    height: 2vh;
 }
 
 .space_between {
-    font-family: "Special Elite";
-    font-size: 1.25em;
-    padding: 0 50px;
-    line-height: 160%;
+    font-family: "Special Elite", sans-serif;
+    font-size: 1.2vw;
+    padding: 0 4vw;
+    line-height: 100%;
+    min-font-size: 10px;
 }
-.sepia {
-    -webkit-filter: sepia(90%);
-}
+
 .new-story-heading{
 
 }
 
 .new-story-para {
     text-indent: 3em; padding: 3em;
+    font-size: 1.1vw;
 }
 /*
 *   Page 3 content
 */
+.sepia {
+    -webkit-filter: sepia(80%);
+}
+
 .page_3 {
     background-color:#D9C6A8;
     top: 78%;
     z-index: 20;
-    left: 18%;
+    left: 16%;
     position:fixed;
-    border: 1px solid black;
 }
 
 .polaroid_1 {
@@ -182,7 +199,7 @@ body {
 /*FOLDER PICS*/
 .manila_back {
     width: 80%;
-    height: auto;
+    height: 35%;
     z-index: 1;
     margin-left: 10%;
     position: fixed;
@@ -190,17 +207,18 @@ body {
 }
 .manila_front {
     width: 80%;
-    height: auto;
+    height: 14%;
     z-index: 100;
     margin-left: 10%;
     position: fixed;
     bottom: 0;
 }
 .up {
-    transition: all .5s;
+    transition: all .8s;
+    border-radius: .5%;
+    box-shadow: 1px -1px 8px #918a8a;
 }
 
 .slide {
-    top: 7%;
+    transform: translate(0, -70vh);
 }
-

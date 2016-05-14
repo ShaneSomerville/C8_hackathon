@@ -293,9 +293,8 @@ function background_generator(){
         marginBottom:'2vh'
     });
     var new_story=$('<p>').html(story).addClass('new-story-para').css({
-        lineHeight:'160%',
-        fontSize:'1.25em',
-        padding:'0 45px',
+        lineHeight:'140%',
+        padding:'0 4vw',
         margin:'0'
     });
     $(".new-identity").append(new_story_heading, new_story);
