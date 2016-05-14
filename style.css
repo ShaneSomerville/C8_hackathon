@@ -53,11 +53,10 @@ body {
     /*height:100%;*/
 }
 
-#photo,
-#lName,
-#fName,
-#place_of_issue,
-#gender { border: 1px solid red; position: absolute;}
+#gender {
+    border: 1px solid red;
+    position: absolute;
+}
 
 #photo {
     width: 127px;

@@ -6,9 +6,50 @@ body {
     padding:0;
     font-family: "Special Elite";
 }
-
 /*PAGE 1 CONTENT*/
-/** use andrew's code*/
+.page_1 {
+    height:759px;
+    width:600px;
+    background-image: url(images/new_passport1.png);
+    background-size: cover;
+    font-family: Verdana;
+    font-weight: bold;
+}
+#photo {
+    position: relative;
+    width: 28%;
+    height: 30%;
+    left: 3%;
+    top: 67%;
+}
+#lName {
+    width: 23%;
+    height: 3%;
+    left: 34%;
+    top: 37%;
+    position: relative;
+}
+#fName {
+    width: 30%;
+    height: 3%;
+    left: 34%;
+    top: 38%;
+    position: relative;
+}
+#place_of_issue {
+    width: 23%;
+    height: 3%;
+    left: 34%;
+    top: 48%;
+    position: relative;
+}
+#gender {
+    width: 23%;
+    height: 3%;
+    left: 76%;
+    top: 45%;
+    position: relative;
+}
 /*PAGE 2 CONTENT*/
 .page_2 {
     background-color: snow;
@@ -19,23 +60,26 @@ body {
     left: 20vw;
     top: -10vh;
 }
-.top_space {
-    padding-bottom: 100px;
-}
+
 .space_between {
-    line-height: 200%;
-    font-size: 0.7vw;
+    font-family: "Special Elite";
+    font-size: 1.25em;
     padding: 0 50px;
+    line-height: 160%;
 }
 .sepia {
     -webkit-filter: sepia(90%);
 }
-.new-story-heading{}
+.new-story-heading{
 
-.new-story-para { text-indent: 3em; padding: 3em;  }
+}
+
+.new-story-para {
+    text-indent: 3em; padding: 3em;
+}
 
 /*
-*   Page 3 content
+*   Page 3 content
 */
 .page_3 {
     position: relative;
@@ -92,10 +136,9 @@ body {
     height: 28vh;
     transform: rotate(-14deg);
 }
-
-.polaroid_2:hover{
+.polaroid_2:hover {
     transition: all 1s ease;
-    transform: rotate(14.5deg) scale(1.25);
+    transform: rotate(14deg) scale(1.25);
 }
 
 .polaroid_3 {
@@ -108,4 +151,16 @@ body {
     top: 35%;
     width: 30vw;
     height: 61vh;
+}
+
+#map {
+    width: 71%;
+    height: 60%;
+    top: -50%;
+    left: 16%;
+}
+
+.polaroid_3:hover {
+    transition: all 1s ease;
+    transform: scale(1.25);
 }

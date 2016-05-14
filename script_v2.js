@@ -144,8 +144,8 @@ function randomAgeGenerator (){
 
 function randomGenderGenerator(){
     console.log("start randomGenderGenerator()");
-    var genderArray = ["Male","Female","Marilyn Manson", "Hermaphrodite"];
-    newGender = genderArray[Math.floor((Math.random() * 3) + 1)];
+    var genderArray = ["Male","Female"];
+    newGender = genderArray[Math.floor((Math.random() * 2))];
     console.log("newGender is now: "+newGender);
     displayNewIdentity();
 }//end randomGenderGen
@@ -282,6 +282,16 @@ function background_generator(){
         + ". " + " You take no enjoyment from" + " " + [randomizeOccupations] + " " + "but prefer to immerse yourself in" + " " + [randomizeAdjectives]
         + " " + [randomizeNouns] + ". " + " Everyone has a darkside...for your story to be believable you now have a crippling addiction to" + " " +
         [randomizeNouns] + " " + " and LOVE to attend" + " " + [randomizeConventions] + '.';
-    $(".new-identity").append("<h4 class='new-story-heading'>Description of your new background:</h4>"+"<p class='new-story-para'>"+story+"</p>");
+    var new_story_heading=$('<h4>').html('Description of your new background:').addClass('new-story-heading').css({
+        paddingLeft:'50px',
+        marginBottom:'2vh'
+    });
+    var new_story=$('<p>').html(story).addClass('new-story-para').css({
+        lineHeight:'160%',
+        fontSize:'1.25em',
+        padding:'0 45px',
+        margin:'0'
+    });
+    $(".new-identity").append(new_story_heading, new_story);
 }
 //END BR GENERATOR

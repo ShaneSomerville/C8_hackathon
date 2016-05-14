@@ -11,7 +11,7 @@
 <body>
     <div class="container">
         <div class="page_1 passport">
-            <div id="photo">photo</div>
+            <div id="photo"></div>
             <div id="lName">lstname</div>
             <div id="fName">firstname</div>
             <div id="place_of_issue">place of issue</div>
@@ -27,40 +27,46 @@
             <div class="polaroid_2"></div>
             <div class="polaroid_3">
 
-                <!--<script>-->
+                <div id="map"></div>
 
-                    <!--var geocoder;-->
-                    <!--var map;-->
-                    <!--var address; // this will be set equal to Shane's country variable-->
-                    <!--console.log(region , address);-->
-                    <!--function initialize() {-->
-                        <!--address=region;-->
-                        <!--geocoder = new google.maps.Geocoder();-->
-                        <!--var latlng = new google.maps.LatLng(39.039, 125.763);-->
-                        <!--var mapOptions = {-->
-                            <!--zoom: 4,-->
-                            <!--center: latlng-->
-                        <!--};-->
-                        <!--map = new google.maps.Map(document.getElementById("map"), mapOptions);-->
-                        <!--codeAddress();-->
-                    <!--}-->
+                <script>
 
-                    <!--function codeAddress() {-->
+                    var geocoder;
+                    var map;
+                    var address; // this will be set equal to Shane's country variable
+                    console.log("region and address", region , address);
+                    function initialize() {
+                        address=region;
+                        geocoder = new google.maps.Geocoder();
+                        var latlng = new google.maps.LatLng(39.039, 125.763);
+                        var mapOptions = {
+                            zoom: 4,
+                            center: latlng
+                        };
+                        map = new google.maps.Map(document.getElementById("map"), mapOptions);
+                        codeAddress();
+                    }
 
-                        <!--geocoder.geocode( { 'address': address}, function(results, status) {-->
-                            <!--if (status == google.maps.GeocoderStatus.OK) {-->
-                                <!--map.setCenter(results[0].geometry.location);-->
-                                <!--var marker = new google.maps.Marker({-->
-                                    <!--map: map,-->
-                                    <!--position: results[0].geometry.location-->
-                                <!--});-->
-                            <!--} else {-->
-                                <!--alert("Geocode was not successful for the following reason: " + status);-->
-                            <!--}-->
-                        <!--});-->
-                    <!--}-->
-                <!--</script>-->
-                <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-9oIod8mgLqzttLY9zP_JRcdAVkcRPic" async defer></script>-->
+                    function codeAddress() {
+
+                        geocoder.geocode( { 'address': address}, function(results, status) {
+                            if (status == google.maps.GeocoderStatus.OK) {
+                                map.setCenter(results[0].geometry.location);
+                                var marker = new google.maps.Marker({
+                                    map: map,
+                                    position: results[0].geometry.location
+                                });
+                            } else {
+                                alert("Geocode was not successful for the following reason: " + status);
+                            }
+                        });
+                    }
+                </script>
+
+                <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-9oIod8mgLqzttLY9zP_JRcdAVkcRPic" async defer></script>
+
+            </div>
+
             </div>
         </div>
         </div>
