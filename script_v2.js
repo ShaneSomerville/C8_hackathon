@@ -16,14 +16,18 @@ var newOccupationDescription;
 
 //START DOC READY
 $(document).ready(function(){
+    randomAgeGenerator();
+    randomGenderGenerator();
+    randomOccupationGenerator();
     get_identity();
     getCarPhoto();
     getHomePhoto();
-    randomAgeGenerator();
-    randomGenderGenerator();
     $(".up").on("click", function() {
         console.log("fuck");
         $(this).toggleClass("slide");
+    });
+    $("body").one("click", function() {
+        $(".intro").css("display", "none");
     })
 });
 //END DOC READY
@@ -41,12 +45,18 @@ function get_identity(){
             firstName=result.name;
             lastName=result.surname;
             region=result.region;
-            initialize();
-            randomOccupationGenerator();
             displayToPassport();
+            displayNewIdentity();
+            initialize(); // for google map
         },
         error: function(){
-            console.log('call was unsuccessful')
+            console.log('call was unsuccessful');
+            firstName = "Donald";
+            lastName = "Trump";
+            region = "North Korea";
+            displayToPassport();
+            displayNewIdentity();
+            initialize(); // for google map
         }
     })
 }
@@ -135,46 +145,39 @@ function getHomePhoto() {
 /**randomAgeGenerator* randomizes a new age and stores in newAge variable.  outputs to DOM*/
 
 function randomAgeGenerator (){
-    console.log("start randomAgeGenerator()");
-    console.log("newAge is now: "+newAge);
     newAge = Math.floor((Math.random() * 120) + 1);
     console.log("newAge is now: "+newAge);
-    displayNewIdentity();
 }//end randomAgeGen
 
 /**randomGenderGenerator* randomizes a new gender and stores in newGender variable.  outputs to DOM*/
 
 function randomGenderGenerator(){
-    console.log("start randomGenderGenerator()");
     var genderArray = ["Male","Female"];
     newGender = genderArray[Math.floor((Math.random() * 2))];
     console.log("newGender is now: "+newGender);
-    displayNewIdentity();
 }//end randomGenderGen
 
 /**randomOccupationGenerator* randomizes a new occupation and stores in newOccupation variable.  outputs to DOM*/
 
 function randomOccupationGenerator(){
-    console.log("start randomOccupationGenerator()");
-    console.log("occupationArray.length = "+occupationArray.length);
     var newOccupationObj = occupationArray[Math.floor((Math.random() * 30) + 1)];
     newOccupation = newOccupationObj.label;
     console.log("newOccupation = "+newOccupation);
     newOccupationDescription = newOccupationObj.description;
     console.log("newOccupationDescription = "+newOccupationDescription);
-    displayNewIdentity();
-    background_generator();
+    // displayNewIdentity();
+    // background_generator();
 }//end randomOccupationGenerator
 
 /**displayNewIdentity* appends random new Age, Gender and Occupation to DOM*/
 
 function displayNewIdentity(){
-    $('.space_between').html('');
     var welcome_to_life=$('<h3>').html('Welcome to your new life :');
     var new_age_page_2=$('<h4>').html('Your New Age: ' + newAge);
     var new_gender_page_2=$('<h4>').html('Your New Gender: ' + newGender);
-    var new_occupation_page_2=$('<h4>').html('Your New Occupation:' + newOccupation);
-    $('.space_between').append(welcome_to_life, new_age_page_2, new_gender_page_2, new_occupation_page_2);
+    var new_occupation_page_2=$('<h4>').html('Your New Occupation:' + newOccupation + " - " + newOccupationDescription);
+    $('.identity_info').append(welcome_to_life, new_age_page_2, new_gender_page_2, new_occupation_page_2);
+    $(".new-story-para").text(story);
 }//end displayNewIdentity
 
 /**div 4 display* appends Gender to div 4 in DOM*/
@@ -263,40 +266,58 @@ var occupationArray = [
 ];  //end newOccupationArray
 
 
-function background_generator(){
-    // Arrays Holding Misc Info
-    var occupations =['trumpeter','funeral clown','coffee bitch','piccoloist','penetration tester'];
-    var hobbies = ['wind gazing','polishing poop','toilet paper origami','collecting in-flight sick bags','fingernail/toenail collection'];
-    var crushIt = ['crush it', 'pwn It','rek It'];
-    var adjectives = ['moaning','shaggy','spicy','tricky','colossal','hissing'];
-    var nouns = ['banana','Llamamoramma and the Splendiferous Cupcake Experience','captain fantastic ','sock gnomes ','mermaid eggs '];
-    var conventions = ['Association of Lincoln Presenters','World Taxidermy & Fish Carving Championships','World Clown Association','Anthrocon','Merfest','BronyCon'];
-    var locations = ['New York', 'England'];
-    // var names = ['betch','fack'];
+//JVOX START
+// Arrays Holding Misc Info
+var occupations =['Funeral Clown','Coffee Bitch','Penetration Tester'];
+var hobbies = ['Wind Gazing','Polishing Poop','Toilet Paper Origami','Collecting In-Flight Sick Bags','Fingernail/Toenail Collection'];
+var adjectives = ['moaning','shaggy','spicy','tricky','colossal','hissing'];
+var nouns = ['Adult tear drops','sock gnomes ','belly button lint '];
+var conventions = ['Fetish Con','World Taxidermy & Fish Carving Championships','World Clown Association'];
+var diabolical = ['devilish','fiendish','evil','wicked'];
+//Attending
+var clothing = ['Toe socks','A sleeveless hoodie','Furry sandals','Cummerbunds'];
+var randomizeClothing  = clothing[Math.floor(Math.random()*clothing.length)];
+var person = ['Kim Il Sung','Adolf Hitler','Joseph Stalin','George W Bush'];
+var randomizePerson = person[Math.floor(Math.random()*person.length)];
+var clothIs = ['while dressed in' + " " + randomizeClothing ];
+var personIs = ['impersonating'+  " " + randomizePerson];
+var allThree = [clothIs,personIs];
+var randomizeAttending = allThree[Math.floor(Math.random()*allThree.length)];
+//Prepositions
+var prepDesc = ['in a purple dress','killing the last white rhino','stealing candy from children'];
+var randomizePrepDesc = prepDesc[Math.floor(Math.random()*prepDesc.length)];
+var prepTime = ['before recess','in the morning','at night','after lunch'];
+var randomizePrepTime = prepTime[Math.floor(Math.random()*prepTime.length)];
+var prepLocation = ['near the door','atop the ice cream','in the oven','below the steeple'];
+var randomizePrepLocation = prepLocation[Math.floor(Math.random()*prepLocation.length)];
+var prepDirection = [' to the lake','from the house','into the garage','toward the moon','across the lake'];
+var randomizePrepDirection = prepDirection[Math.floor(Math.random()*prepDirection.length)];
+var food = ['Soft-Boiled Fetal Duck','Whole Sheep  Head','Jellied Moose Nose','Bat Paste '];
+var randomizeFood = food[Math.floor(Math.random()*food.length)];
+//Names
+var nickName = ['Dumbass McDumbface'];
+var randomizenickName = nickName[Math.floor(Math.random() * nickName.length)];
+var callName = ["Nobjockey","Stupid Monkey","Extreme Failure"];
+var randomizeCallName = callName[Math.floor(Math.random()*callName.length)];
+var nickIs = ['nickname is' + " " + randomizenickName];
+var callIs = ['call name is' + " " + randomizeCallName];
+var both = [nickIs,callIs]    ;
+var nickCall = both[Math.floor(Math.random()*both.length)];
 //Randomize Each Array (ROUGH VERSION, WILL CHANGE)
-    var randomizeOccupations = occupations[Math.floor(Math.random()*occupations.length)];
-    var randomizeCrushit = crushIt [Math.floor(Math.random()*crushIt .length)];
-    var randomizeAdjectives = adjectives[Math.floor(Math.random()*adjectives.length)];
-    var randomizeNouns = nouns[Math.floor(Math.random()*nouns.length)];
-    var randomizeConventions = conventions[Math.floor(Math.random()*conventions.length)];
-    var randomizeLocations = locations[Math.floor(Math.random()*locations.length)];
-    // var randomizeNames = names[Math.floor(Math.random()*names.length)];
-    var randomizeHobbies = hobbies[Math.floor(Math.random()*hobbies.length)];
-    var story = " The old you is dead and gone, here's your new life. Your name is " + firstName + ' ' + lastName +  ". You have been a" + " " + newOccupation + " " + " for 10 years."
-        + newOccupationDescription + " " + " Your favorite pastime is" + " " + [randomizeHobbies] + ". " + "As for how you ended up here, when you were young your parents brought you here from  " + " " + [randomizeLocations]
-        + ". " + " In the past you were a " + " " + [randomizeAdjectives] + " " + [randomizeOccupations] + " " + " and because of your inability to" + " " + [randomizeCrushit] + " " + "your company fired you. In search of something new you wound up in" + " " + region
-        + ". " + " You take no enjoyment from" + " " + [randomizeOccupations] + " " + "but prefer to immerse yourself in" + " " + [randomizeAdjectives]
-        + " " + [randomizeNouns] + ". " + " Everyone has a darkside...for your story to be believable you now have a crippling addiction to" + " " +
-        [randomizeNouns] + " " + " and LOVE to attend" + " " + [randomizeConventions] + '.';
-    var new_story_heading=$('<h4>').html('Description of your new background:').addClass('new-story-heading').css({
-        paddingLeft:'50px',
-        marginBottom:'2vh'
-    });
-    var new_story=$('<p>').html(story).addClass('new-story-para').css({
-        lineHeight:'140%',
-        padding:'0 4vw',
-        margin:'0'
-    });
-    $(".new-identity").append(new_story_heading, new_story);
-}
+var randomizeOccupations = occupations[Math.floor(Math.random()*occupations.length)];
+var randomizeAdjectives = adjectives[Math.floor(Math.random()*adjectives.length)];
+var randomizeNouns = nouns[Math.floor(Math.random()*nouns.length)];
+var randomizeConventions = conventions[Math.floor(Math.random()*conventions.length)];
+var randomizeHobbies = hobbies[Math.floor(Math.random()*hobbies.length)];
+var randomizeDiabolical = diabolical[Math.floor(Math.random()*diabolical.length)];
+
+var story = " Thank you for choosing G.A.W.M for your" + " " + [randomizeDiabolical] + " " + " needs." + " " + "In order to successfully integrate" +
+    " into society with your new identity, we have curated a backstory for your new persona. Memorize it. Live it. This is the new you. In the past, you worked as a"
+    + " " + [randomizeOccupations] + " " + " for 10 years, and you collect" + " " + [randomizeNouns] + " " + "You enjoy attending " + " " + [randomizeConventions]+ " " +
+    [randomizeAttending] + " and" + " " + "your" + " " + [nickCall] + " " + " because of your immense passion for" + " " +
+    [randomizeHobbies] + " " + "Your favorite type of food is" + " " + [randomizeAdjectives] + " " + [randomizeFood] + " " + "and you prefer to eat in the company of " + " " +
+    [randomizePerson] + "."+ " " + "In order for your new identity to be believable, you MUST follow all instructions perfectly." + " "
+    + " As per our agreement, you will be" + " " + [randomizePrepDesc]+ " " + [randomizePrepTime]+ " " + [randomizePrepLocation]+ " " + [randomizePrepDirection]
+    + " " + "so we can collect the troll toll. Upon arrival, please check under the bridge.";
+
 //END BR GENERATOR
