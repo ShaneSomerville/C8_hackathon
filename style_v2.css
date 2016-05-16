@@ -19,7 +19,9 @@ body {
     width: 100%;
     text-align: center;
     top: 10vh;
-    font-family: 'Pacifico', cursive;
+    font-size: 120%;
+    font-weight: 800;
+    font-family: 'Voltaire', sans-serif;
     text-shadow: #E6E6E6 5px 5px 3px;
 }
 
@@ -126,65 +128,70 @@ body {
     z-index: 20;
     left: 16%;
     position:fixed;
+    text-align: center;
+}
+
+.page_3 p, .page_2 p {
+    height: 8%;
+    margin: 1% 0;
+    padding-top: 1%;
+}
+
+.pic_content {
+    position: relative;
+    top: 10%;
+    width: 100%;
+    height: 80%;
 }
 
 .polaroid_1 {
-    background-image: url(images/clip1.png);
-    background-repeat: no-repeat;
-    background-position: top right 20%;
-    background-size: 100%;
+    border: 5px #BEAD8B solid;
     position: relative;
-    float: right;
-    width: 25vw;
-    height: 43vh;
+    float: left;
+    width: 40%;
+    height: 40%;
+    transform: rotate(14.5deg);
+    display: inline-block;
+    left: 6%;
 }
 
 .car_img {
     position: relative;
-    top: 7vh;
-    left: 14%;
-    float: left;
-    width: 19vw;
-    height: 27vh;
-    transform: rotate(14.5deg);
+    width: 85%;
+    height: 85%;
+    padding: 0 5%;
+
 }
 
-.polaroid_1:hover {
+/* .polaroid_1:hover {
     transition: all 1s ease;
     transform: rotate(-14.5deg) scale(1.25);
-}
+} */
 
 
 .polaroid_2 {
-    background-image: url(images/clip2.png);
-    background-repeat: no-repeat;
-    background-position: top left 20%;
-    background-size: 95%;
+    border: 5px #BEAD8B solid;
     position: relative;
-    float: left;
-    width: 25vw;
-    height: 43vh;
+    float: right;
+    width: 35%;
+    height: 35%;
+    transform: rotate(-14.5deg);
+    right: 6%;
 }
 
 .house_img {
     position: relative;
-    float: right;
-    top: 6.5vh;
-    right: 4vw;
-    width: 18vw;
-    height: 28vh;
-    transform: rotate(-14deg);
-}
-.polaroid_2:hover {
-    transition: all 1s ease;
-    transform: rotate(14deg) scale(1.25);
+    width: 85%;
+    height: 85%;
+    padding: 0 5%;
 }
 
+/*.polaroid_2:hover {
+    transition: all 1s ease;
+    transform: rotate(14deg) scale(1.25);
+} */
+
 .polaroid_3 {
-    background-image: url(images/clip3.png);
-    background-repeat: no-repeat;
-    background-position: center bottom;
-    background-size: 95%;
     position: relative;
     left: 18%;
     top: 35%;
@@ -193,10 +200,12 @@ body {
 }
 
 #map {
-    width: 71%;
-    height: 60%;
-    top: -50%;
-    left: 16%;
+    width: 80%;
+    height: 50%;
+    position: relative;
+    top: 10%;
+    left: 10%;
+    border: 5px #BEAD8B solid;
 }
 
 .polaroid_3:hover {

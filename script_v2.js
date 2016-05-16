@@ -313,11 +313,11 @@ var randomizeDiabolical = diabolical[Math.floor(Math.random()*diabolical.length)
 
 var story = " Thank you for choosing G.A.W.M for your" + " " + [randomizeDiabolical] + " " + " needs." + " " + "In order to successfully integrate" +
     " into society with your new identity, we have curated a backstory for your new persona. Memorize it. Live it. This is the new you. In the past, you worked as a"
-    + " " + [randomizeOccupations] + " " + " for 10 years, and you collect" + " " + [randomizeNouns] + " " + "You enjoy attending " + " " + [randomizeConventions]+ " " +
+    + " " + [randomizeOccupations] + " " + " for 10 years, and you collect" + " " + [randomizeNouns] + ". " + " You enjoy attending " + " " + [randomizeConventions]+ " " +
     [randomizeAttending] + " and" + " " + "your" + " " + [nickCall] + " " + " because of your immense passion for" + " " +
-    [randomizeHobbies] + " " + "Your favorite type of food is" + " " + [randomizeAdjectives] + " " + [randomizeFood] + " " + "and you prefer to eat in the company of " + " " +
-    [randomizePerson] + "."+ " " + "In order for your new identity to be believable, you MUST follow all instructions perfectly." + " "
+    [randomizeHobbies] + ". " + " Your favorite type of food is" + " " + [randomizeAdjectives] + " " + [randomizeFood] + " " + "and you prefer to eat in the company of " + " " +
+    [randomizePerson] + "."+ " " + " In order for your new identity to be believable, you MUST follow all instructions perfectly." + " "
     + " As per our agreement, you will be" + " " + [randomizePrepDesc]+ " " + [randomizePrepTime]+ " " + [randomizePrepLocation]+ " " + [randomizePrepDirection]
-    + " " + "so we can collect the troll toll. Upon arrival, please check under the bridge.";
+    + " " + "so we can collect the troll toll.  Upon arrival, please check under the bridge.";
 
 //END BR GENERATOR
